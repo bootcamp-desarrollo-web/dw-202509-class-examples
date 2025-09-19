@@ -1,0 +1,43 @@
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.container {
+    display: block;
+}
+
+#div01, #div02, #div03, #div04 {
+    border: 1px solid #aeaeae;
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    padding: 20px;
+}
+
+#div01 {
+    background-color: #eccaca;
+}
+
+#div02 {
+    background-color: #b4d9b5;
+}
+
+#div03 {
+    background-color: #8da0d0;
+}
+
+#div04 {
+    background-color: #cad193;
+}
+
+.box1 {
+    /* display: block; */
+    /* display: inline; */
+    display: inline-block;
+    /* display: none; */
+
+    /* overflow: visible; */
+    /* overflow: hidden; */
+    /* overflow: scroll; */
+    overflow: auto;
+}

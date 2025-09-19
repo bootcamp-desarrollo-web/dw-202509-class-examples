@@ -1,0 +1,44 @@
+body {
+    font-size: 16px;
+    margin: 0px;
+}
+
+div.container {
+    display: block;
+    border: 1px dotted black;
+    height: 120px;
+}
+
+div.element {
+    border: 1px solid black;
+    background-color: #eccaca;
+    padding: 20px;
+    width: 300px;
+    display: inline-block;
+}
+
+.relativePosition {
+    position: relative;
+    top: 50px;
+    left: 20px;
+}
+
+.staticPosition {
+    position: static;
+}
+
+.absolutePosition {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.sticky {
+    position: sticky;
+    top: 0px;
+    right: 0px;
+    border: 1px solid black;
+    background-color: #ade5b8;
+    padding: 20px;
+    width: 100%;
+}
