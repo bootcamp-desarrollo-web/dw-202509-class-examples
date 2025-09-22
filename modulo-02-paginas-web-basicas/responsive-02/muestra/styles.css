@@ -1,0 +1,8 @@
+.mycontainer {
+    display: grid;
+    grid-template-columns: repeat(8, auto);
+}
+
+.mycontainer > div {
+    border: 1px solid #000000;
+}

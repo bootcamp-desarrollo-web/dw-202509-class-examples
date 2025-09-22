@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  background-color: rgb(197, 194, 242);
+  padding: 10px;
+  margin: 20px 10px;
+}
+
+.container03 {
+  grid-template-columns: auto auto auto;  /* Make a 3 columns grid container */
+}
+
+.container04 {
+  grid-template-columns: auto auto 100px auto;  /* Make a 4 columns grid container, 3rd with width 100px */
+}
+
+.container12 {
+  grid-template-columns: repeat(12, auto);  /* Make a 12 columns grid container using function 'repeat' */
+}
+
+.container > div {
+  background-color: #e0b1b1;
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 24px;
+  text-align: center;
+}

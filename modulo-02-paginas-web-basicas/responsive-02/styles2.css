@@ -1,0 +1,44 @@
+/* ************************************************************/
+/* Para ver cómo afectan las diferentes propiedades, 
+/* descomentar los pasos uno por uno y jugar con los valores
+/* que aparecen en los comentarios.
+/* ************************************************************/
+
+/* ========================================================== */
+/*  (1) Declaración base para ver el contenedor y los items   */
+/* ========================================================== */
+.container {
+  background-color: #b7dccb;
+  border: 1px solid black;
+  display: flex;
+}
+
+.item {
+  background-color: #db9650;
+  border: 1px solid black;
+}
+
+/* ========================================================== */
+/*  (2) Controlar la distribución de los items
+/*      flex-wrap: nowrap
+/*      justify-content: space-around | flex-start | flex-end */
+/* ========================================================== */
+/* .container {
+  flex-wrap: wrap;
+  justify-content: space-between;
+} */
+
+/* ========================================================== */
+/*  (3) Cambia el orden de los elementos html.                */
+/*      Añade a algúnb item una de estas clases css           */
+/*      (por ejemplo: class="item item-order-2")              */
+/* ========================================================== */
+/* .item-order-1 {
+  order: 1;
+}
+.item-order-2 {
+  order: 2;
+}
+.item-order-3 {
+  order: 3;
+} */
