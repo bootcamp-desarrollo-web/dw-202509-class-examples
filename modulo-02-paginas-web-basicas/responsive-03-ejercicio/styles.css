@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  /*justify-content: space-between;*/  /* Espacios iguales entre los items */
+  justify-content: space-around;       /* Espacios iguales alrededor de los items */
+  flex-wrap: wrap;                     /* Indica que si los items no entran a una linea, que pasen a otra linea*/
+  border: 2px solid #424242;
+  padding: 10px;
+  background: #f7f7f7;
+}
+
+.item {
+  background: #aee5e3;
+  border: 1px solid #424242;
+  border-radius: 6px;
+  padding: 30px 20px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 10px 0;
+}
