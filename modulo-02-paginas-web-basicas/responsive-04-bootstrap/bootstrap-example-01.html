@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejemplo Visual Bootstrap Responsivo</title>
+ 
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+  <style>
+    .mycol {
+      background-color: bisque;
+      border: 1px solid black;
+    }
+
+    .color-turquesa {
+      background-color: aqua;
+    }
+  </style>
+
+</head>
+<body>
+  <h3>Bootstrap grid example (1)</h3>
+
+  <div class="container">
+    <div class="row">
+      <!-- 
+        col-12 : css class from bootstrap
+        mycol :  css definido en este mismo fichero
+       -->
+      <div class="col-12 mycol">
+        Columna de 12
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3 mycol">
+        Columna de 3
+      </div>
+      <div class="col-3 mycol">
+        Columna de 3
+      </div>
+      <div class="col-6 mycol">
+        Columna de 6
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-1 mycol">1</div>
+      <div class="col-1 mycol">2</div>
+      <div class="col-1 mycol">3</div>
+      <div class="col-1 mycol">4</div>
+      <div class="col-1 mycol">5</div>
+      <div class="col-1 mycol">6</div>
+      <div class="col-1 mycol color-turquesa">7</div>
+      <div class="col-1 mycol">8</div>
+      <div class="col-1 mycol">9</div>
+      <div class="col-1 mycol">10</div>
+      <div class="col-1 mycol">11</div>
+      <div class="col-1 mycol">12</div>
+    </div>
+
+    <div class="row">
+      <div class="col-1 mycol">1</div>
+      <div class="col-1 mycol">1</div>
+      <div class="col-1 mycol">1</div>
+
+      <div class="col-3 mycol">3</div>
+
+      <div class="col-6 mycol">6</div>
+    </div>
+
+  </div>
+
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
