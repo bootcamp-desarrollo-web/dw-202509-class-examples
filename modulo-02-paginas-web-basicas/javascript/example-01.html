@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primer ejemplo de Javascript</title>
+</head>
+
+<body>
+    <h1>¡Hola <span id="userName"></span>!</h1>
+</body>
+</html>
+
+<script>
+    // Este mensaje aparecera en un pop-up
+    alert('Este es un alert');
+
+    // Pdimos del usuario que conteste a una pregunta
+    var usernameTxt = prompt('¿Cómo te llamas?');
+    console.warn("Respuesta prompt: " + usernameTxt);
+
+    // ¡Muy importante!
+    // Comprobamos que el usuario ha contestado, en caso que no, asignamos un texto por defecto
+    if (usernameTxt === null || usernameTxt === '') {
+        usernameTxt = 'desconocido';
+    }
+
+    // Insertar el nombre de usuario en el html
+    document.getElementById('userName').innerText = usernameTxt;
+</script>
+
