@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise day 01 - Change table color</title>
+    <link rel="stylesheet" href="exercise-day-01.css">
+</head>
+
+<body>
+    <button onclick="changeColor()">¡Cambia el color!</button>
+
+    <div id="myDiv">Este es un div</div>
+</body>
+
+</html>
+
+<script>
+    function changeColor() {
+        // Primero obtenemos el elemento div por su id
+        let myDivEl = document.getElementById('myDiv');
+
+        // Añadimos clase css al div
+        // Opcional: Para alternar entre los dos colores, cambia 'add' a 'toggle'
+        myDivEl.classList.toggle('blue-bg');
+    }
+</script>

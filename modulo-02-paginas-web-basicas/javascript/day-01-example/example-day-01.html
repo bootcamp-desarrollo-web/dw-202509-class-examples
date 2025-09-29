@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change table color</title>
+    <link rel="stylesheet" href="example-day-01.css">
+</head>
+
+<body>
+    <ul>
+        <li><button class="blue-bg" onclick="setColor('blue')">Blue</button></li>
+        <li><button class="red-bg" onclick="setColor('red')">Red</button></li>
+        <li><button class="green-bg" onclick="setColor('green')">Green</button></li>
+    </ul>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Status</th>
+        </tr>
+        <tr class="odd-row">
+            <td>Jane Doe</td>
+            <td>Developer</td>
+            <td>Active</td>
+        </tr>
+        <tr class="even-row">
+            <td>John Smith</td>
+            <td>Designer</td>
+            <td>Inactive</td>
+        </tr>
+        <tr class="odd-row">
+            <td>Emily Zhang</td>
+            <td>Project Manager</td>
+            <td>Active</td>
+        </tr>
+        <tr class="even-row">
+            <td>Michael Brown</td>
+            <td>QA Engineer</td>
+            <td>Pending</td>
+        </tr>
+        <tr class="odd-row">
+            <td>Laura Kim</td>
+            <td>Data Analyst</td>
+            <td>Active</td>
+        </tr>
+        <tr class="even-row">
+            <td>Carlos Ruiz</td>
+            <td>Support Specialist</td>
+            <td>Inactive</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
+<script>
+    function setColor(colorStr) {
+        // Imprimir a consola el parametro de entrada que se llama la función
+        console.log('color: ', colorStr);
+
+        // Obtenemos todos los elementos que tienen la clase 'odd-row'
+        let rows = document.getElementsByClassName('odd-row');
+
+        // Imprimir a la consola todos los elementos que acabamos de obtener
+        console.log(rows)
+
+        // Iteramos todas las filas obtenidas
+        for (let i = 0; i < rows.length; i++) {
+            // La fila actual
+            let currentRow = rows[i]
+            
+            currentRow.classList.remove('blue-bg');
+            currentRow.classList.remove('red-bg');
+            currentRow.classList.remove('green-bg');
+
+            currentRow.classList.add(colorStr + "-bg")
+        }
+        
+    }
+</script>

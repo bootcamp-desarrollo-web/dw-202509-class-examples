@@ -1,0 +1,30 @@
+/* Definir fuente y tamaño de texto para todo el documento */
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 24px;
+}
+
+div {
+  background-color: #76cd60;
+  border: 1px solid #838383;
+  margin: 30px;
+  width: 200px;
+  padding: 20px;
+}
+
+/* Definimos clase con color de fondo azul */
+.blue-bg {
+  background-color: #608ccd;
+}
+
+
+/* Opcional: embellecer el botón */
+/* button {
+  padding: 10px 20px;
+  border: 1px solid #345345;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px 0px;
+  width: 150px;
+} */

@@ -1,0 +1,56 @@
+/* Aplicar font Verdada a todo el documento */
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Aplicar estilos a la tabla */
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px 20px;
+}
+
+th {
+  background-color: #bab6b6;
+}
+
+tr.even-row {
+  background-color: #dfdfdf;
+}
+
+/* Definir clases de los colores*/
+.blue-bg {
+  background-color: #94b8ea;
+}
+
+.red-bg {
+  background-color: #ea9494;
+}
+
+.green-bg {
+  background-color: #b5ee9f;
+}
+
+/*****************************/
+/*          EXTRAS           */
+/*****************************/
+/* Eliminar el relleno predeterminado de los elementos <ul> y ocultar los puntos de los elementos <li> */
+ul {
+  padding: 0px;
+}
+ul li {
+  list-style: none;
+}
+
+/* Embellecer el botón */
+button {
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px 0px;
+  width: 150px;
+}
