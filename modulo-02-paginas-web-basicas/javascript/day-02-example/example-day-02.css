@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+}
+div {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+div.blue-bg {
+    background-color: #9092f0;
+}
+
+div.red-bg {
+    background-color: #f09090;
+}
+
+div.green-bg {
+    background-color: #98f090;
+}
+
+div.black-border {
+    border: 2px solid #000000;
+}
+
+div.gray-border {
+    border: 2px solid #7c7c7c;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px 20px;
+}
+
+.table-header {
+    background-color: #292929;
+    color: #ffffff;
+}
+.odd-row {
+    background-color: #f2f2f2;
+}
+.even-row {
+    background-color: #b1b1b1;
+}
