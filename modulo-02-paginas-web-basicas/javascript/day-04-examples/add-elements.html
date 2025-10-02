@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        div {
+            border: 1px solid #000000;
+            padding: 10px;
+            margin: 10px;
+            background-color: #ffffff;
+        }
+
+        #main-div {
+            background-color: #ffa4a4;
+            width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-div">
+        <div>Hello</div>
+        <button onclick="addItem()">Add item</button>
+    </div>
+</body>
+</html>
+<script>
+function addItem() {
+    let res = confirm('Quieres realmente añadir otro elemento?');
+    
+    if (res === false) {
+        return;
+    }
+
+    // Crear un nuevo elemento div
+    let newDiv = document.createElement('div');
+
+    // Crear un timestamp
+    let d = new Date();
+    let nowTimeStr = d.toLocaleTimeString();
+
+    newDiv.innerHTML = `[${nowTimeStr}] <b>New element</b>!`;
+    // Otra posibilidad de añadir una variable dento del texto
+    // newDiv.innerHTML = "[" + nowTimeStr + "] <b>New element</b>!";
+
+    // Obtener el elemento padre
+    let mainDiv = document.getElementById('main-div');
+
+    // Asignar el nuevo elemento al padre
+    // mainDiv.appendChild(newDiv);
+    mainDiv.insertBefore(newDiv, mainDiv.lastElementChild);
+}
+</script>

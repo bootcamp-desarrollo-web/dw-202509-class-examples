@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos (2)</title>
+</head>
+
+<body>
+    <div id="parent-div">
+        <form action="login.php" id="my-form">
+            <input type="text" id="username-id" name="username" placeholder="Tu nombre" style="margin-right: 20px;">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    document.getElementById('parent-div').addEventListener('mouseover', function() {
+        console.log('parent div mouseover');
+    })
+
+    document.getElementById('parent-div').addEventListener('click', function() {
+        console.log('parent div clicked');
+    })
+
+    document.getElementById('my-form').addEventListener('click', function(event) {
+        event.stopPropagation();
+        console.log('Form clicked');
+    })
+
+    document.getElementById('my-form').addEventListener('submit', function(event) {
+        // Prevenir (parar) la actitud por defecto del evento
+        event.preventDefault();
+
+        console.log('Submit fired!');
+
+        // Acceder al valor del input "username"
+        const userNameEl = event.target.username
+        if (userNameEl) {
+            console.log('Nombre de usuario: ', userNameEl.value);
+        }
+    })
+</script>

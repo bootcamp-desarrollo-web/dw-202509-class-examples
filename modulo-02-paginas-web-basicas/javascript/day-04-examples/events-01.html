@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos (1)</title>
+</head>
+
+<body>
+    <button id="my-btn-1">Click me (1)</button>
+    <button id="my-btn-2">Click me too!!! (2)</button>
+</body>
+
+</html>
+<script>
+    const btnEl1 = document.getElementById('my-btn-1');
+    btnEl1.onclick = function() {
+        alert('Button clicked (1)');
+    }
+
+    const btnEl2 = document.getElementById('my-btn-2');
+    btnEl2.addEventListener('click', function() {
+        alert('Button clicked (2)');
+    })
+</script>
