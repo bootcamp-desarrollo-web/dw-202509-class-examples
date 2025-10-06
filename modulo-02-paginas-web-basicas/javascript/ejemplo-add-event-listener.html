@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de eventos</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: aquamarine;
+      border: 1px solid gray;
+      font-size: 36px;
+      text-align: center;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Abre la consola de desarrollador para ver los eventos (mouseiverf, mouseout, click)</h2>
+  <div id="div1">div 1</div>
+  <div id="div2">div 2</div>
+</body>
+</html>
+<script>
+  let div1El = document.getElementById('div1');
+  div1El.addEventListener('mouseover' , function(e) {
+    console.log("mouseover div 1");
+  });
+
+    div1El.addEventListener('mouseout' , function(e) {
+    console.log("mouseout div 1");
+  });
+
+  div1El.addEventListener('click' , function(e) {
+    console.log("click div 1");
+    console.log("--> Target: ", e.target);
+  });
+
+  document.getElementById('div2').addEventListener('click' , function(e) {
+    console.log("click div 2");
+  });
+
+
+
+  // Crear una función genérica para imprimir el texto
+  function printInnerText(event) {
+    console.log(`*** Div: ${event.target.innerText} (${event.type})`)
+  }
+
+  document.getElementById('div2').addEventListener('click' , printInnerText);
+</script>
