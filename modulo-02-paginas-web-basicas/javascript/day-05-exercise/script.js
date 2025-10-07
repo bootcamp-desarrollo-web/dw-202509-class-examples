@@ -7,18 +7,32 @@ document.getElementById('my-first-form').addEventListener('submit', function(e) 
   // Metodo 2 - acceder al input a través de 
   const surnameInput = e.target.surnameInput.value.trim();
 
-  // Extraer el nodo donde va a aparecer el resultado
-  const resultBox = document.getElementById('result-box');
+  errorMsg = '';
+  if (nameInput === '') {
+    errorMsg += "Campo 'Nombre' es obligatorio.";
+  }
+  if (!surnameInput) {
+    errorMsg += "Campo 'Apellido' es obligatorio.";
+  }
 
-  // Elegir entre puro texto / html
-  // resultado.textContent = `Hola, ${nombre} ${apellido}`;
-  resultBox.innerHTML = `Hola, <b>${nameInput} ${surnameInput}</b>`;
+  // Lo mismo como escribir (errorMsg === '')
+  if (!errorMsg) {
+    // Extraer el nodo donde va a aparecer el resultado
+    const resultBox = document.getElementById('result-box');
 
-  // Mostrar caja de resultado
-  resultBox.style.display = 'block';
+    // Elegir entre puro texto / html
+    // resultado.textContent = `Hola, ${nombre} ${apellido}`;
+    resultBox.innerHTML = `Hola, <b>${nameInput} ${surnameInput}</b>`;
+
+    // Mostrar caja de resultado
+    resultBox.style.display = 'block';
+
+  } else {
+    alert (errorMsg);
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function() {
   console.log("DOM completamente cargado y parseado");
-  const nameInput = document.getElementById('name-input').focus();
+  document.getElementById('name-input').focus();
 });
