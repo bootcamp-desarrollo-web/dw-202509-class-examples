@@ -1,0 +1,40 @@
+body {
+    margin: 20px auto;
+    max-width: 800px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-menu {
+    border: 1px solid #353535;
+    background-color: rgb(166, 235, 154);
+    padding: 20px;
+    text-align: center;
+}
+
+.header {
+    border: 1px solid #353535;
+    background-color: rgb(241, 185, 247);
+    padding: 20px;
+    text-align: center;
+}
+
+.card-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card {
+    border: 1px solid #353535;
+    background-color: rgb(255, 252, 248);
+    width: 200px;
+    height: 90px;
+    padding: 20px;
+    line-height: 30px;
+}
