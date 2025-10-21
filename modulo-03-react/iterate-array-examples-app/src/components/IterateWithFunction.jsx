@@ -1,4 +1,12 @@
 function IterateWitFunction({arr}) {
+  function renderRow(el, i) {
+    return (
+        <tr>
+            <td>{el.name}</td>
+            <td>{el.age}</td>
+        </tr>
+    )
+  }
 
   return (
     <table>
@@ -14,14 +22,5 @@ function IterateWitFunction({arr}) {
     </table>
   )
 }
-
-  function renderRow(el, i) {
-    return (
-        <tr key={i}>
-            <td>{el.name}</td>
-            <td>{el.age}</td>
-        </tr>
-    )
-  }
 
 export default IterateWitFunction
