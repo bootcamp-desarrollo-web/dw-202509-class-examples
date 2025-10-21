@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventario de Productos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Inventario de Productos</h1>
+      </header>
+
+      <section class="form-section">
+        <h2>Agregar nuevo producto</h2>
+        <form id="product-form">
+          <input type="text" id="name" placeholder="Nombre del producto" />
+          <input type="text" id="price" placeholder="Precio (€)" />
+          <input type="text" id="stock" placeholder="Cantidad en stock" />
+          <button type="submit">Agregar producto</button>
+        </form>
+      </section>
+
+      <section class="table-section">
+        <h2>Lista de productos</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio (€)</th>
+              <th>Stock</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Teclado mecánico</td>
+              <td>89.99</td>
+              <td>12</td>
+              <td><button class="delete-btn">Borrar</button></td>
+            </tr>
+            <tr>
+              <td>Ratón inalámbrico</td>
+              <td>35.50</td>
+              <td>20</td>
+              <td><button class="delete-btn">Borrar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>
