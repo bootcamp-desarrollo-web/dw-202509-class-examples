@@ -1,7 +1,7 @@
 function IterateWitFunction({arr}) {
   function renderRow(el, i) {
     return (
-        <tr>
+        <tr key={i}>
             <td>{el.name}</td>
             <td>{el.age}</td>
         </tr>
