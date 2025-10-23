@@ -1,4 +1,4 @@
-function ProductsTable({ productsList }) {
+function ProductsTable({ productsList, onDeleteProduct }) {
   function renderRow(product) {
     return (
       <tr key={product.id}>
@@ -6,7 +6,9 @@ function ProductsTable({ productsList }) {
         <td>{product.price}</td>
         <td>{product.stock}</td>
         <td>
-          <button className="delete-btn">Borrar</button>
+          <button className="delete-btn" onClick={() => onDeleteProduct(product.id)}>
+            Borrar
+          </button>
         </td>
       </tr>
     )
