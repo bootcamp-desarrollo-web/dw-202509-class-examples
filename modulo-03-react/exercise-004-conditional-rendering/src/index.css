@@ -1,0 +1,42 @@
+.container {
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: rgb(205, 205, 205);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.button-wrapper {
+  margin-bottom: 15px;
+}
+
+.button-wrapper button {
+  background-color: #72a1e2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0px 10px;
+}
+
+.increment-btn:hover {
+  background-color: #9e4b99;
+}
+
+.boom-wrapper {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.boom-wrapper .boom-div {
+  border: 1px solid rgb(143, 130, 130);
+  border-radius: 10px;
+  margin: 10px 0px;
+  line-height: 30px;
+}
