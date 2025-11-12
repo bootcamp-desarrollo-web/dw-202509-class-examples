@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.item button {
+  background-color: #cfb3f3;
+  border-radius: 8px;
+  border-style: none;
+  padding: 10px 20px;
+  width: 150px;
+  color: rgb(12, 34, 53);
+}
+
+.item button:focus,
+.item button:hover {
+  background-color: #b59dd4;
+  border-radius: 8px;
+  border-style: none;
+  cursor: pointer;
+}
