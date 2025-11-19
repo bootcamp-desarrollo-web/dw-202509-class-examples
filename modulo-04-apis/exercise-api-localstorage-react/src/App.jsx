@@ -1,55 +1,86 @@
 import { useEffect, useState } from "react"
+import TodoForm from "./components/TodoForm"
 
 function App() {
   // ¡Importante!
   // Crear un fichero .env con las variables necesarias
-  const apiUrl = import.meta.env.VITE_API_URL
+  const baseApiUrl = import.meta.env.VITE_API_URL
   const userId = import.meta.env.VITE_API_USER_ID
   const secret = import.meta.env.VITE_API_SECRET
+  
+  // {{base_url}}/todos/{{user_id}}/{{secret}}
+  const apiUrl = `${baseApiUrl}/todos/${userId}/${secret}`
 
-  // Creamos dos variables con useState para almacenar los datos devueltos del servidor,
-  // y por otro lado los errores que puedan aparecer durante el proceso
   const [data, setData] = useState()
   const [error, setError] = useState()
 
-  // Usamos useEffect ya que la respuesta del servidor es un efecto secundario que cambia 
-  // el contenido del html generado
-  useEffect(() => {
+  function fetchData() {
     fetch(apiUrl)
-    .then(
-      (response) => {
-        // Comprobar errores de HTTP (403, 404, 500)
-        if (!response.ok) {
-          throw new Error(`[ERROR] Got status ${response.status}`)
+      .then((res) => {
+        if (!res.ok) {
+          // throw new Error(`Error: status ${res.status}`)
+          throw new Error('Error: status ' + res.status)
         }
 
-        // Esta llamada devuelve una promesa que la tendremos que captar con otro .then()
-        return response.json()
-      }
-    )
-    .then(data => setData(data)
-    )
-    .catch(err => setError(err.message)
-    )
-  }, [apiUrl, userId, secret])
-  // En este caso la lista de dependencias podría ser también []
+        // devolvemos la promesa
+        return res.json()
+      })
+      .then((result) => {
+        // Aquí tenemos un json con la respuesta
+        // console.log('result: ', result)
 
-  // usamos if para distinguir entre tres casos:
-  // - Se ha producido un error
-  // - Aún estamos esperando a la respuesta del servidor
-  // - Ya están los datos disponibles
-  if (error) {
-    return <div className="error">Error: {error}</div>
+        if (!Array.isArray(result)) {
+          throw new Error('result is not an array')
+        }
+
+        setData(result)
+      })
+      .catch((err) => {
+        console.error('ERR:', err.message)
+        setError(err.message)
+      })
   }
+
+  // Importante! Usamos useEffect para evitar problemas como ejecución infinita, etc.
+  useEffect(fetchData, [])
+
+  if (error) {
+    return <div className="error">Got error: {error}</div>
+  }
+
   if (!data) {
     return <div>Loading...</div>
   }
+
+  function printRow(row) {
+    return (
+      <tr key={row._id}>
+        <td>{row._id}</td>
+        <td>{row.title}</td>
+        <td>{ row.completed ? 'V' : 'X' }</td>
+      </tr>
+    )
+  }
+
   return (
     <>
-    <div>
-      <h3>Data:</h3>
-      <code>{JSON.stringify(data)}</code>
-    </div>
+    <h3>Hola App</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>title</th>
+          <th>completed</th>
+        </tr>
+      </thead>
+      {/* imprimir una linea para cada registro del array 'data' */}
+      <tbody>
+        { data.map(row => printRow(row)) }
+      </tbody>
+    </table>
+
+    <h3>Create new TODO</h3>
+    <TodoForm apiUrl={apiUrl}/>
     </>
   )
 }
