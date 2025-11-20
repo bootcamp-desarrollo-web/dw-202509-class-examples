@@ -8,7 +8,7 @@ function App() {
   const userId = import.meta.env.VITE_API_USER_ID
   const secret = import.meta.env.VITE_API_SECRET
   
-  // {{base_url}}/todos/{{user_id}}/{{secret}}
+  // Montamos la url principal de la api (para todas las operaciones)
   const apiUrl = `${baseApiUrl}/todos/${userId}/${secret}`
 
   const [data, setData] = useState()
@@ -62,6 +62,14 @@ function App() {
     )
   }
 
+  function createCallback(res, err) {
+    if (err) {
+      setError(err)
+    } else {
+      setData([...data, res])
+    }
+  }
+
   return (
     <>
     <h3>Hola App</h3>
@@ -80,7 +88,7 @@ function App() {
     </table>
 
     <h3>Create new TODO</h3>
-    <TodoForm apiUrl={apiUrl}/>
+    <TodoForm apiUrl={apiUrl} createCallback={createCallback}/>
     </>
   )
 }

@@ -1,9 +1,10 @@
 import { useState } from "react"
 
-function TodoForm({apiUrl}) {
-    const [formData, setFormData] = useState({
+function TodoForm({apiUrl, createCallback}) {
+    const emptyFormData = {
         title: '',
-    })
+    }
+    const [formData, setFormData] = useState(emptyFormData)
 
     // Esta función se  encarga de captar el input del usuario y actualizar la vaiable formData
     function handleChange(e) {
@@ -42,12 +43,19 @@ function TodoForm({apiUrl}) {
         })
         .then((result) => {
             console.log('>>> got result: ', result)
-            // Aquí tenemos que eocontrar una forma de añadir el resultado 
-            // al array 'data' que está en App.jsx
-            //   ---- ¿cómo? ----
+
+            setFormData(emptyFormData)
+
+            // Añadimos el resultado al array 'data' que está en App.jsx
+            // a través de la función que hemos recibido como prop
+            createCallback(result)
         })
         .catch((err) => {
             console.error('ERR:', err.message)
+
+            // Llamamos al callback con el mensaje de error 
+            // (importante! el error es el segundo argumento de la función)
+            createCallback(null, err.message)
         })
     }
 
