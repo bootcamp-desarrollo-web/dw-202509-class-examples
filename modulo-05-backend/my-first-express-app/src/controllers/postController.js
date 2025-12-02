@@ -56,11 +56,30 @@ const createPost = async (req, res) => {
     }
 }
 
-const updatePost = (req, res) => {
-    console.log('-- updatePost --')
-    const postId = req.params.id
-    const postData = req.body
-    res.send(`Update post with id ${postId} with data: ${JSON.stringify(postData)}`)
+/**
+ * Actualizar un post que ya existe.
+ * 
+ * TODO - tenemos un error si pasamos como una id '100', recibimos un error:
+ * Cast to ObjectId failed for value "{ _id: '100' }" (type Object) at path "_id" for model "Post"
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+const updatePost = async (req, res) => {
+    try {
+        const postId = req.params.id
+        const postData = req.body
+
+        const post = await Post.findByIdAndUpdate({ _id: postId }, postData, {new: true})
+        if (!post) {
+            return res.status(404).json({error: 'Post not found'})
+        }
+        res.json(post)
+
+    } catch(e) {
+        res.status(500).json({error: e.message})
+    }
 }
 
 const deletePost = (req, res) => {
