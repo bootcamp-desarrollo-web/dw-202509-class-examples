@@ -25,18 +25,35 @@ const getPost = async (req, res) => {
     try {
         const postId = req.params.id
         // Busca todos los documentos en la colección "posts"
-        const posts = await Post.findById(postId)
-        res.json(posts)
+        const post = await Post.findById(postId)
+        res.json(post)
     } catch (err) {
         console.log('[ERROR]', err)
         res.status(500).send('DB Error')
     }
 }
 
-const createPost = (req, res) => {
-    console.log('-- createPost --')
-    const postData = req.body
-    res.send(`Create new post with data: ${JSON.stringify(postData)}`)
+/**
+ * Crear un nuevo post basado en la información enviada
+ * @param {*} req 
+ * @param {*} res 
+ */
+const createPost = async (req, res) => {
+    try {
+        // Obtenemos los datos enviados por el cuerpo de la petición
+        const postData = req.body
+        
+        // Creamos un nuevo documento con los datos enviados
+        const post = new Post(postData)
+
+        // Guardamos el nuevo documento en la BBD
+        await post.save()
+
+        // Devolvemos el objeto creado, ahora con una ID
+        res.status(201).json(post)
+    } catch (e) {
+        res.status(500).json({ error: e.message })
+    }
 }
 
 const updatePost = (req, res) => {
