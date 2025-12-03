@@ -1,3 +1,4 @@
+const { default: mongoose } = require('mongoose')
 const Post = require('../models/post')
 
 /**
@@ -59,9 +60,6 @@ const createPost = async (req, res) => {
 /**
  * Actualizar un post que ya existe.
  * 
- * TODO - tenemos un error si pasamos como una id '100', recibimos un error:
- * Cast to ObjectId failed for value "{ _id: '100' }" (type Object) at path "_id" for model "Post"
- * 
  * @param {*} req 
  * @param {*} res 
  * @returns 
@@ -71,7 +69,15 @@ const updatePost = async (req, res) => {
         const postId = req.params.id
         const postData = req.body
 
+        // Comprobar que la ID es válida
+        const isValidId = mongoose.isValidObjectId(postId)
+        if (!isValidId) {
+            throw new Error(`ID ${postId} is not a valid id`)
+        }
+
         const post = await Post.findByIdAndUpdate({ _id: postId }, postData, {new: true})
+        
+        // Comprobamos si existe un documento con la ID que se ha enviado
         if (!post) {
             return res.status(404).json({error: 'Post not found'})
         }
@@ -82,10 +88,36 @@ const updatePost = async (req, res) => {
     }
 }
 
-const deletePost = (req, res) => {
-    console.log('-- deletePost --')
-    const postId = req.params.id
-    res.send(`Delete post with id ${postId}`)
+/**
+ * Borrar un post
+ * Esta función es casi idéntica a updatePost, cambiando findByIdAndUpdate -> findByIdAndDelete
+ * (tampoco necesitamos aquí la variable postData ya que se trata de delete)
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+const deletePost = async (req, res) => {
+    try {
+        const postId = req.params.id
+
+        // Comprobar que la ID es válida
+        const isValidId = mongoose.isValidObjectId(postId)
+        if (!isValidId) {
+            throw new Error(`ID ${postId} is not a valid id`)
+        }
+
+        const post = await Post.findByIdAndDelete(postId)
+
+        // Comprobamos si existe un documento con la ID que se ha enviado
+        if (!post) {
+            return res.status(404).json({error: 'Post not found'})
+        }
+        res.json({message: 'Post deleted'})
+
+    } catch(e) {
+        res.status(500).json({error: e.message})
+    }
 }
 
 module.exports = {
