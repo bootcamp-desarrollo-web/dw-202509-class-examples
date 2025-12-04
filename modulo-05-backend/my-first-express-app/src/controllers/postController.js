@@ -75,12 +75,20 @@ const updatePost = async (req, res) => {
             throw new Error(`ID ${postId} is not a valid id`)
         }
 
-        const post = await Post.findByIdAndUpdate({ _id: postId }, postData, {new: true})
-        
+        // Extraer el post por la ID
+        const post = await Post.findById(postId)
+
         // Comprobamos si existe un documento con la ID que se ha enviado
         if (!post) {
             return res.status(404).json({error: 'Post not found'})
         }
+
+        // Usamos set y save para asegurarnos que se aplica la validación
+        // Otra opción sería usar 'runValidators':
+        // const post = await Post.findByIdAndUpdate({ _id: postId }, postData, {new: true, runValidators: true})
+        post.set(postData)
+        await post.save()
+
         res.json(post)
 
     } catch(e) {
