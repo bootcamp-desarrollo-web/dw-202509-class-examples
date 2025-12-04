@@ -3,6 +3,9 @@ const router = express.Router()
 
 const postController = require('../controllers/postController')
 
+const checkSecretKey = require('../middleware/checkSecretKey')
+router.use(checkSecretKey)
+
 // Read all
 router.get('/blog/posts', postController.getPosts)
 
